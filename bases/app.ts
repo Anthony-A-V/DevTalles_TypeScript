@@ -1,65 +1,79 @@
 (() => {
 
-  // Tipos
-  const batman = 'Bruce';
-  const superman = 'Clark';
 
-  const batman1: string = 'Bruce'
-  const superman1: string = 'Clark'
+  // Objetos
 
-  const existe = false;
-  const existe1: boolean = false;
-
-  // Tuplas
-  const parejaHeroes = [batman, superman];
-  const villano = ['Lex Lutor', 5, true];
-
-  const parejaHeroes1: [string, string] = [batman1, superman1]
-  const villano1: [string, number, boolean] = ['Lex Lutor', 5, true]
-
-  // Arreglos
-  const aliados = ['Mujer Maravilla', 'Acuaman', 'San', 'Flash'];
-  const aliados1: string[] = ['Mujer Maravilla', 'Acuaman', 'San', 'Flash'];
-
-  //Enumeraciones
-
-  enum fuerza {
-    acuaman = 0,
-    batman = 1,
-    flash = 5,
-    superman = 100,
+  type Carro = {
+    carroceria: string,
+    modelo: string,
+    antibalas: boolean,
+    pasajeros: number,
+    disparar?: () => void
   }
 
-  const fuerzaFlash: fuerza = fuerza.acuaman;
-  const fuerzaSuperman: fuerza = fuerza.batman;
-  const fuerzaBatman: fuerza = fuerza.flash;
-  const fuerzaAcuaman: fuerza = fuerza.superman;
+  const batimovil: Carro = {
+    carroceria: "Negra",
+    modelo: "6x6",
+    antibalas: true,
+    pasajeros: 4
+  };
 
-  // Retorno de funciones
-  function activar_batiseñal() {
-    return 'activada';
+  const bumblebee: Carro = {
+    carroceria: "Amarillo con negro",
+    modelo: "4x2",
+    antibalas: true,
+    pasajeros: 4,
+    disparar() { // El metodo disparar es opcional
+      console.log("Disparando");
+    }
+  };
+
+
+  // Villanos debe de ser un arreglo de objetos personalizados
+  type Villano = { nombre: string, edad: number | undefined, mutante: boolean }
+
+  const villanos: Villano[] = [{
+    nombre: "Lex Luthor",
+    edad: 54,
+    mutante: false
+  }, {
+    nombre: "Erik Magnus Lehnsherr",
+    edad: 49,
+    mutante: true
+  }, {
+    nombre: "James Logan",
+    edad: undefined,
+    mutante: true
+  }];
+
+  // Multiples tipos
+  // cree dos tipos, uno para charles y otro para apocalipsis
+
+  type Charles = {
+    poder: string,
+    estatura: number
   }
 
-  function activar_batiseñal1(): string {
-    return 'activada';
+  type Apocalipsis = {
+    lider: boolean,
+    miembros: string[]
   }
 
-  function pedir_ayuda() {
-    console.log('Auxilio!!!');
+  const charles: Charles = {
+    poder: "psiquico",
+    estatura: 1.78
+  };
+
+  const apocalipsis: Apocalipsis = {
+    lider: true,
+    miembros: ["Magneto", "Tormenta", "Psylocke", "Angel"]
   }
 
-  function pedir_ayuda1(): void {
-    console.log('Auxilio!!');
-  }
+  // Mystique, debe poder ser cualquiera de esos dos mutantes (charles o apocalipsis)
+  let mystique: Charles | Apocalipsis;
 
-  // Aserciones de Tipo
-  const poder: any = '100';
-  const largoDelPoder: number = poder.length;
-  console.log(largoDelPoder);
+  mystique = charles;
+  mystique = apocalipsis;
 
-  const poder1: any = '100';
-  const largoDelPoder1: number = (poder1 as string).length;
-  console.log(largoDelPoder1);
 
 })()
-
