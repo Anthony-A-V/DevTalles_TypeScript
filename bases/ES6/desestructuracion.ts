@@ -23,6 +23,11 @@
     console.log(ironman, resto)
   }
 
-  printAvenger(avengers)
+  // printAvenger(avengers)
+
+  const avengersArr: [string, boolean, number] = ['Cap. América', true, 150.15]
+
+  const [capitan, ironman, seriaUnNumero] = avengersArr;
+  // console.log({ ironman, capitan })
 
 })()
