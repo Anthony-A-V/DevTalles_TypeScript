@@ -10,9 +10,9 @@
   }
 
   class Mutant implements Xmen, Human {
-    public age: number;
-    public name: string;
-    public realName: string;
+    public age: number = 0;
+    public name: string = 'AV';
+    public realName: string = 'Anthony';
     mutantPower(id: number): string {
       return `${this.name} ${this.realName}`;
     }
